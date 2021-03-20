@@ -39,7 +39,7 @@ let mountains = [
     return result;
   }
 
-  let filedata = loadFile('../data/music.txt')
+  let filedata = loadFile('data/music.txt')
 
   let table = document.querySelector("table");
   let data = Object.keys(mountains[0]);
