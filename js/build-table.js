@@ -1,3 +1,4 @@
+
 let mountains = [
     { name: "Monte Falco", height: 1658, place: "Parco Foreste Casentinesi" },
     { name: "Monte Falterona", height: 1654, place: "Parco Foreste Casentinesi" },
@@ -39,9 +40,25 @@ let mountains = [
     return result;
   }
 
-  let filedata = loadFile('data/music.txt')
+  file = 'data/music.txt'
+
+  let filedata = loadFile(file)
+  
+  filetype = file.lastIndexOf('.');
+
+  tracklist = "";
+  document.write(filetype)
+  data = CSVToArray(filedata, '\t');
+  switch(filetype) {
+    case 'txt' :
+        
+        break;
+    case 'm3u8':
+        tracklist = handle_m3u8(filedata);
+        break;
+}
 
   let table = document.querySelector("table");
-  let data = Object.keys(mountains[0]);
-  generateTableHead(table, data);
-  generateTable(table, mountains);
+  let headers = data.shift();
+  generateTableHead(table, headers);
+  generateTable(table, data);
